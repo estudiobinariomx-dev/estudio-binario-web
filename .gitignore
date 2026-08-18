@@ -1,0 +1,38 @@
+# ===== Sistema operativo =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===== Editores / IDEs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Vercel =====
+.vercel/
+
+# ===== Variables de entorno / secretos =====
+.env
+.env.local
+.env.*.local
+
+# ===== Node (por si en el futuro agregan tooling: Sass, minificadores, etc.) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ===== Logs =====
+*.log
+
+# ===== Archivos temporales =====
+*.tmp
+*.bak
