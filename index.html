@@ -766,6 +766,27 @@
       margin-top: 0;
     }
 
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      padding: 8px 14px;
+      border: 1px solid rgba(247, 242, 236, 0.3);
+      border-radius: 100px;
+      color: #DCEAE3;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .social-links a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
     .fine {
       padding-top: 24px;
       display: flex;
@@ -1081,6 +1102,12 @@
           <span class="label">Atendido por</span>
           <p>Francisco y Brenda</p>
           <p>Ingenieros en Desarrollo de Software</p>
+          <span class="label">Síguenos</span>
+          <div class="social-links">
+            <a href="https://instagram.com/estudiobinariomx" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/share/19BQMKBh5J" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://tiktok.com/@estudiobinariomx" target="_blank" rel="noopener noreferrer">TikTok</a>
+          </div>
         </div>
       </div>
       <div class="fine">
