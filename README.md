@@ -11,20 +11,26 @@ Atendido por:
 Landing page de una sola página (`index.html`), hecha en **HTML, CSS y JavaScript puros** — sin frameworks, sin proceso de build, sin dependencias que instalar. Incluye:
 
 - Presentación de servicios organizados por necesidad del cliente (no por tecnología)
-- Tabla de precios pública (Básico / Intermedio / A la medida)
-- Sección técnica desplegable con el stack y certificaciones
+- Caso de estudio de Mañana Rica (proyecto propio) y lugar para proyectos de clientes
+- Garantías por escrito (pago final al aprobar, todo a nombre del cliente, 30 días de garantía, contrato)
+- Precios fijos: Arranque / Negocio / Sistema + Plan Tranquilidad mensual + servicios sueltos + precio de fundador
 - Preguntas frecuentes
+- Sección técnica desplegable al final, con el stack y certificaciones
+- Aviso de privacidad y términos del servicio
 - Contacto directo por WhatsApp y correo
 
 ## 📁 Estructura
 
 ```
 .
-├── index.html      # Todo el sitio: HTML + CSS (embebido) + JS (embebido)
-└── README.md
+├── index.html             # Página principal
+├── aviso-privacidad.html  # Aviso de privacidad
+├── terminos.html          # Términos del servicio
+├── styles.css             # Estilos (variables de color en :root)
+├── script.js              # Animación al hacer scroll y botón "volver arriba"
+├── assets/                # Logo, favicon e imágenes de proyectos
+└── vercel.json            # Cabeceras de seguridad
 ```
-
-Al ser un solo archivo autocontenido, no hay carpetas de `src`, `assets` ni `dist` — si el sitio crece (más páginas, formularios con backend, imágenes propias), aquí es buen punto para reestructurar.
 
 ## 💻 Cómo verlo en local
 
@@ -43,7 +49,9 @@ No requiere instalación de nada. Dos opciones:
 
 ## ✏️ Cómo editar el contenido
 
-Todo el texto, precios y enlaces de contacto (WhatsApp, correo) están directamente en `index.html`, dentro de sus respectivas secciones (`<section id="...">`). Los estilos están en el bloque `<style>` al inicio del archivo, usando variables CSS (`:root`) para colores y medidas — cambia ahí si quieren ajustar la paleta.
+Todo el texto, precios y enlaces de contacto (WhatsApp, correo) están directamente en `index.html`, dentro de sus respectivas secciones (`<section id="...">`). Los estilos están en `styles.css`, usando variables CSS (`:root`) para colores y medidas — cambia ahí si quieren ajustar la paleta.
+
+Si cambian precios, garantías o formas de pago, actualicen también `terminos.html` y el contrato para que digan lo mismo.
 
 ## 🚀 Despliegue
 
@@ -53,9 +61,11 @@ Dominio contratado en **Hostinger**, apuntado a Vercel mediante registros DNS (t
 
 ## 📌 Pendientes / ideas futuras
 
-- [ ] Reemplazar textos de ejemplo por casos reales de clientes
+- [ ] Fotos reales de Francisco y Brenda en "Quién te atiende"
+- [ ] Testimonios de clientes (bloque comentado en la sección Proyectos)
+- [ ] Domicilio completo en el aviso de privacidad
+- [ ] Sello "Facturamos" cuando ya se pueda emitir factura
 - [ ] Agregar formulario de contacto funcional (alternativa a solo WhatsApp/correo)
-- [ ] Sección de casos de éxito / portafolio
 - [ ] Configurar correo profesional (`@estudiobinario.mx` o el dominio elegido)
 
 ## 🔒 Licencia

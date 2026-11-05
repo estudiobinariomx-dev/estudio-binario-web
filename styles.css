@@ -1158,3 +1158,493 @@
       transition: opacity .01s, visibility .01s;
     }
   }
+  /* =====================================================================
+     Secciones de confianza (nov 2026)
+     ===================================================================== */
+
+  /* ---------- Hero: certificaciones ---------- */
+  .hero-card .hero-certs {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(247, 242, 236, 0.18);
+    font-size: 13px;
+    color: #CFE4DB;
+  }
+
+  /* ---------- Cómo trabajamos (antes con estilos en línea) ---------- */
+  .steps-band {
+    background: var(--stone-deep);
+    border-radius: var(--radius-lg);
+    margin: 0 28px;
+    padding: 72px 44px;
+  }
+
+  .steps-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+
+  @media (max-width:600px) {
+    .steps-band {
+      margin: 0 14px;
+      padding: 56px 24px;
+    }
+  }
+
+  /* ---------- Caso de estudio ---------- */
+  .case {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .case-media {
+    display: block;
+    background: var(--pine);
+    min-height: 280px;
+    overflow: hidden;
+  }
+
+  .case-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s var(--ease);
+  }
+
+  .case-media:hover img {
+    transform: scale(1.03);
+  }
+
+  .case-body {
+    padding: 34px 34px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .case-body h3 {
+    font-size: clamp(22px, 2.4vw, 27px);
+    margin-bottom: 18px;
+  }
+
+  .case-facts {
+    margin: 0;
+    display: grid;
+    gap: 14px;
+  }
+
+  .case-facts dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pine-dark);
+    margin-bottom: 3px;
+  }
+
+  .case-facts dd {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  .case-body .project-link {
+    margin-top: 22px;
+  }
+
+  .case-body .project-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width:860px) {
+    .case {
+      grid-template-columns: 1fr;
+    }
+
+    .case-media {
+      min-height: 220px;
+      max-height: 320px;
+    }
+
+    .case-body {
+      padding: 26px 24px 28px;
+    }
+  }
+
+  #proyectos .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width:600px) {
+    #proyectos .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-card--cta {
+    background: transparent;
+    border: 1.5px dashed var(--rose);
+    justify-content: center;
+  }
+
+  .project-card--cta:hover {
+    border-color: var(--pine);
+  }
+
+  /* ---------- Testimonios (cuando existan) ---------- */
+  .testimonials {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .testimonial {
+    margin: 0;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+
+  .testimonial p {
+    font-family: 'Zilla Slab', serif;
+    font-size: 18px;
+  }
+
+  .testimonial footer {
+    all: unset;
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Garantías ---------- */
+  #garantias {
+    padding-top: 24px;
+  }
+
+  .guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .guarantee {
+    background: var(--pine);
+    color: var(--paper);
+    border-radius: var(--radius-md);
+    padding: 26px 22px;
+  }
+
+  .g-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #241a06;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .guarantee h3 {
+    font-size: 18px;
+    color: #FBF8F4;
+    margin-bottom: 8px;
+  }
+
+  .guarantee p {
+    font-size: 14px;
+    color: #DCEAE3;
+  }
+
+  @media (max-width:1000px) {
+    .guarantee-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width:560px) {
+    .guarantee-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Beneficios ---------- */
+  .benefits-section {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .benefit {
+    padding: 22px 20px 0 0;
+  }
+
+  .benefit h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .benefit h3::before {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  .benefit p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width:900px) {
+    .benefit-grid {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 10px;
+    }
+  }
+
+  @media (max-width:520px) {
+    .benefit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Precios: monto, checklist, plan mensual, extras, fundadores ---------- */
+  .price-amount {
+    font-family: 'Zilla Slab', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--pine-dark);
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+
+  .price-amount span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .price-card.featured .price-amount {
+    color: #FBF8F4;
+  }
+
+  .price-card.featured .price-amount span {
+    color: #CFE4DB;
+  }
+
+  .price-card .check-list li {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .price-card .check-list li::before {
+    content: "✓";
+    color: var(--gold);
+    font-weight: 700;
+    flex: none;
+  }
+
+  .plan-band {
+    margin-top: 28px;
+    background: var(--ink);
+    color: #EDE5DA;
+    border-radius: var(--radius-lg);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .plan-band h3 {
+    font-size: clamp(21px, 2.4vw, 26px);
+    color: #FBF8F4;
+    margin-bottom: 10px;
+  }
+
+  .plan-band p {
+    font-size: 14.5px;
+    color: #D8D2C9;
+    max-width: 70ch;
+  }
+
+  .plan-band .btn {
+    flex: none;
+  }
+
+  @media (max-width:760px) {
+    .plan-band {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 24px;
+    }
+  }
+
+  .extras {
+    margin-top: 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 26px 28px 14px;
+  }
+
+  .extras h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
+  }
+
+  .extras ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+  }
+
+  .extras li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .extras li b {
+    color: var(--pine-dark);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  @media (max-width:700px) {
+    .extras ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .founders {
+    margin-top: 28px;
+    background: var(--pine);
+    color: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: 38px 36px;
+    scroll-margin-top: 100px;
+  }
+
+  .founders h3 {
+    font-size: clamp(22px, 2.6vw, 28px);
+    color: #FBF8F4;
+    margin: 12px 0 10px;
+  }
+
+  .founders p {
+    color: #DCEAE3;
+    font-size: 15px;
+    max-width: 64ch;
+    margin-bottom: 22px;
+  }
+
+  .founders b {
+    color: var(--gold);
+  }
+
+  /* ---------- Zona técnica al final ---------- */
+  .tech-section {
+    padding-top: 0;
+  }
+
+  /* ---------- Footer: enlaces legales ---------- */
+  .fine-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .fine-links a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .fine-links a:hover {
+    color: var(--gold);
+  }
+
+  /* ---------- Páginas legales ---------- */
+  .legal {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 28px 88px;
+  }
+
+  .legal h1 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin: 14px 0 8px;
+  }
+
+  .legal .updated {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+  }
+
+  .legal h2 {
+    font-size: 22px;
+    margin: 34px 0 10px;
+  }
+
+  .legal p,
+  .legal li {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .legal p + p {
+    margin-top: 12px;
+  }
+
+  .legal ul {
+    padding-left: 22px;
+  }
+
+  .legal a {
+    color: var(--pine);
+    text-decoration: underline;
+  }
+
+  .legal .back {
+    display: inline-block;
+    margin-top: 40px;
+    font-weight: 600;
+    color: var(--pine-dark);
+    text-decoration: none;
+  }
+
+  .price-amount small {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }

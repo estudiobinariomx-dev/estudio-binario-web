@@ -34,3 +34,61 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
+
+// Palabra que rota en el título del inicio
+(function () {
+  var el = document.getElementById('rotator');
+  if (!el) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var words = ['negocio', 'restaurante', 'consultorio', 'tienda', 'taller', 'negocio'];
+  var i = 0;
+  setInterval(function () {
+    el.classList.add('out');
+    setTimeout(function () {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove('out');
+      el.classList.add('in');
+      // forzar reflow para que la transición de entrada se vea
+      void el.offsetWidth;
+      el.classList.remove('in');
+    }, 350);
+  }, 2600);
+})();
+
+// Header con sombra al bajar + botón de WhatsApp flotante tras pasar el inicio
+(function () {
+  var header = document.querySelector('header');
+  var wa = document.getElementById('waFloat');
+  var hero = document.querySelector('.hero');
+  function onScroll() {
+    var y = window.scrollY;
+    if (header) header.classList.toggle('scrolled', y > 10);
+    if (wa && hero) {
+      var heroBottom = hero.offsetTop + hero.offsetHeight - 200;
+      wa.classList.toggle('visible', y > heroBottom);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Resalta en el menú la sección que estás viendo
+(function () {
+  var links = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      links.forEach(function (a) { a.classList.remove('active'); });
+      var link = map[entry.target.id];
+      if (link) link.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  Object.keys(map).forEach(function (id) {
+    var sec = document.getElementById(id);
+    if (sec) io.observe(sec);
+  });
+})();
