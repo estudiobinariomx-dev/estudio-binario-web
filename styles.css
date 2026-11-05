@@ -1648,3 +1648,342 @@
     font-weight: 600;
     color: var(--ink-soft);
   }
+
+  /* =====================================================================
+     Animaciones y microinteracciones
+     Todas se desactivan con prefers-reduced-motion (al final del bloque).
+     ===================================================================== */
+
+  /* ---------- Header: sombra al hacer scroll + enlace activo ---------- */
+  header {
+    transition: box-shadow .3s var(--ease), background .3s;
+  }
+
+  header.scrolled {
+    background: rgba(237, 229, 218, 0.97);
+    box-shadow: 0 10px 28px -18px rgba(38, 34, 32, 0.35);
+  }
+
+  .nav-links a.active {
+    opacity: 1;
+    color: var(--pine-dark);
+  }
+
+  .nav-links a.active::after {
+    right: 0;
+  }
+
+  /* ---------- Hero: brillo que se mueve lento + palabra que rota ---------- */
+  .hero-panel::before {
+    background:
+      radial-gradient(circle at 85% -10%, rgba(255, 255, 255, 0.12), transparent 55%),
+      radial-gradient(circle at 10% 110%, rgba(183, 133, 46, 0.16), transparent 50%);
+    background-size: 140% 140%, 140% 140%;
+    animation: heroGlow 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroGlow {
+    from {
+      background-position: 0% 0%, 100% 100%;
+    }
+
+    to {
+      background-position: 100% 30%, 0% 70%;
+    }
+  }
+
+  .rotator {
+    display: inline-block;
+    color: var(--gold);
+    position: relative;
+    transition: opacity .35s var(--ease), transform .35s var(--ease), filter .35s;
+  }
+
+  .rotator::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.04em;
+    height: 0.08em;
+    background: currentColor;
+    opacity: .35;
+    border-radius: 2px;
+  }
+
+  .rotator.out {
+    opacity: 0;
+    transform: translateY(-0.25em);
+    filter: blur(3px);
+  }
+
+  .rotator.in {
+    opacity: 0;
+    transform: translateY(0.25em);
+    filter: blur(3px);
+  }
+
+  /* ---------- Botones dorados: destello al pasar el mouse ---------- */
+  .btn-gold {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .btn-gold::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+    z-index: -1;
+    transition: left .6s var(--ease);
+  }
+
+  .btn-gold:hover::after {
+    left: 120%;
+  }
+
+  .btn:active {
+    transform: translateY(0) scale(.97);
+  }
+
+  /* ---------- Datos de confianza: entrada escalonada ---------- */
+  .trust-item {
+    animation: fadeUp .7s var(--ease) both;
+  }
+
+  .trust-item:nth-child(1) { animation-delay: .30s; }
+  .trust-item:nth-child(2) { animation-delay: .38s; }
+  .trust-item:nth-child(3) { animation-delay: .46s; }
+  .trust-item:nth-child(4) { animation-delay: .54s; }
+
+  /* ---------- Pasos: la línea punteada se dibuja ---------- */
+  .steps .step:not(:last-child)::after {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .8s var(--ease);
+  }
+
+  .steps.in-view .step:nth-child(1)::after { transform: scaleX(1); transition-delay: .3s; }
+  .steps.in-view .step:nth-child(2)::after { transform: scaleX(1); transition-delay: .6s; }
+  .steps.in-view .step:nth-child(3)::after { transform: scaleX(1); transition-delay: .9s; }
+
+  /* ---------- Caso de estudio: la imagen sube suave ---------- */
+  .case.in-view .case-media img {
+    animation: caseIn 1.1s var(--ease) both;
+  }
+
+  @keyframes caseIn {
+    from {
+      transform: scale(1.08);
+      opacity: .4;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* ---------- Garantías: la palomita "salta" ---------- */
+  .guarantee {
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+
+  .guarantee:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 32px -20px rgba(20, 51, 41, 0.6);
+  }
+
+  .guarantee-grid.in-view .g-icon {
+    animation: pop .55s cubic-bezier(.34, 1.56, .64, 1) both;
+  }
+
+  .guarantee-grid.in-view .guarantee:nth-child(1) .g-icon { animation-delay: .25s; }
+  .guarantee-grid.in-view .guarantee:nth-child(2) .g-icon { animation-delay: .35s; }
+  .guarantee-grid.in-view .guarantee:nth-child(3) .g-icon { animation-delay: .45s; }
+  .guarantee-grid.in-view .guarantee:nth-child(4) .g-icon { animation-delay: .55s; }
+
+  @keyframes pop {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* ---------- Beneficios: la rayita dorada crece ---------- */
+  .benefit h3::before {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .6s var(--ease), width .3s var(--ease);
+  }
+
+  .benefit-grid.in-view .benefit h3::before {
+    transform: scaleX(1);
+  }
+
+  .benefit-grid.in-view .benefit:nth-child(2) h3::before { transition-delay: .1s; }
+  .benefit-grid.in-view .benefit:nth-child(3) h3::before { transition-delay: .2s; }
+  .benefit-grid.in-view .benefit:nth-child(4) h3::before { transition-delay: .3s; }
+
+  .benefit:hover h3::before {
+    width: 46px;
+  }
+
+  /* ---------- Paquete recomendado: brillo que lo recorre ---------- */
+  .price-card.featured {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-card.featured::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.10), transparent);
+    transform: rotate(10deg);
+    animation: sheen 6s ease-in-out 1.5s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes sheen {
+    0% {
+      left: -80%;
+    }
+
+    35%,
+    100% {
+      left: 140%;
+    }
+  }
+
+  /* ---------- Fundadores: punto que "late" ---------- */
+  .founders .eyebrow::before {
+    animation: beat 1.8s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(183, 133, 46, 0.6);
+    }
+
+    50% {
+      box-shadow: 0 0 0 7px rgba(183, 133, 46, 0);
+    }
+  }
+
+  /* ---------- Botón flotante de WhatsApp ---------- */
+  .wa-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 51;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 18px 12px 14px;
+    border-radius: 100px;
+    background: #1FA855;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14.5px;
+    box-shadow: 0 14px 28px -12px rgba(15, 80, 40, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(.95);
+    transition: opacity .35s var(--ease), transform .35s var(--ease), visibility .35s, background .2s;
+  }
+
+  .wa-float svg {
+    width: 22px;
+    height: 22px;
+    flex: none;
+  }
+
+  .wa-float.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .wa-float.visible::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    animation: waRing 2.6s ease-out 1s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes waRing {
+    0% {
+      box-shadow: 0 0 0 0 rgba(31, 168, 85, 0.5);
+    }
+
+    70%,
+    100% {
+      box-shadow: 0 0 0 14px rgba(31, 168, 85, 0);
+    }
+  }
+
+  .wa-float:hover {
+    background: #178a45;
+    transform: translateY(-3px);
+  }
+
+  /* El botón "volver arriba" se acomoda encima del de WhatsApp */
+  .to-top {
+    bottom: 84px;
+  }
+
+  @media (max-width:600px) {
+    .wa-float {
+      right: 16px;
+      bottom: 16px;
+      padding: 13px;
+    }
+
+    .wa-float span {
+      display: none;
+    }
+
+    .to-top {
+      bottom: 80px;
+    }
+  }
+
+  /* ---------- Movimiento reducido: todo quieto ---------- */
+  @media (prefers-reduced-motion: reduce) {
+
+    .hero-panel::before,
+    .trust-item,
+    .price-card.featured::before,
+    .founders .eyebrow::before,
+    .wa-float.visible::before,
+    .guarantee-grid.in-view .g-icon,
+    .case.in-view .case-media img {
+      animation: none !important;
+    }
+
+    .steps .step:not(:last-child)::after,
+    .benefit h3::before {
+      transform: none !important;
+      transition: none !important;
+    }
+
+    .rotator,
+    .btn-gold::after {
+      transition: none !important;
+    }
+  }
